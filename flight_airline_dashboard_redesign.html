@@ -1,0 +1,222 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+.db{padding:1.25rem;background:var(--color-background-tertiary);font-family:var(--font-sans);}
+.db-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;}
+.db-title{font-size:17px;font-weight:500;color:var(--color-text-primary);}
+.db-subtitle{font-size:12px;color:var(--color-text-tertiary);margin-top:2px;}
+.filters{display:flex;gap:8px;flex-wrap:wrap;}
+.filter-pill{font-size:11px;color:var(--color-text-secondary);background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:20px;padding:4px 12px;}
+.kpi-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:1.25rem;}
+.kpi{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;}
+.kpi-label{font-size:11px;color:var(--color-text-tertiary);margin-bottom:6px;display:flex;align-items:center;gap:5px;}
+.kpi-dot{width:7px;height:7px;border-radius:50%;display:inline-block;}
+.kpi-value{font-size:22px;font-weight:500;color:var(--color-text-primary);line-height:1;}
+.kpi-sub{font-size:11px;color:var(--color-text-secondary);margin-top:4px;}
+.kpi-up{color:#3B6D11;}
+.kpi-down{color:#A32D2D;}
+.charts-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:1.25rem;}
+.charts-row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) minmax(0,1fr);gap:10px;}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;}
+.card-title{font-size:12px;font-weight:500;color:var(--color-text-secondary);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em;}
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--color-text-secondary);}
+.legend-sq{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+.bar-label{font-size:11px;color:var(--color-text-secondary);width:62px;text-align:right;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bar-track{flex:1;height:12px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:3px;}
+.bar-val{font-size:11px;color:var(--color-text-primary);min-width:26px;font-weight:500;}
+.perf-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.perf-label{font-size:11px;color:var(--color-text-secondary);width:56px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.perf-track{flex:1;height:10px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden;}
+.perf-fill{height:100%;border-radius:3px;background:#378ADD;}
+.perf-val{font-size:11px;font-weight:500;color:#0C447C;min-width:36px;}
+</style>
+
+<h2 class="sr-only">Flight and airline performance dashboard showing KPIs, airline comparisons, delay analysis, and trend charts.</h2>
+
+<div class="db">
+
+  <div class="db-header">
+    <div>
+      <div class="db-title">Flight &amp; Airline Performance</div>
+      <div class="db-subtitle">Jan – Mar 2026 · All routes · All airlines</div>
+    </div>
+    <div class="filters">
+      <span class="filter-pill">Flight Status: All</span>
+      <span class="filter-pill">Source: All</span>
+      <span class="filter-pill">Destination: All</span>
+      <span class="filter-pill">Airline: All</span>
+    </div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-label"><span class="kpi-dot" style="background:#1D9E75;"></span>Total revenue</div>
+      <div class="kpi-value">$283K</div>
+      <div class="kpi-sub kpi-up">+172.7% vs goal</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label"><span class="kpi-dot" style="background:#378ADD;"></span>Tickets sold</div>
+      <div class="kpi-value">520</div>
+      <div class="kpi-sub" style="color:var(--color-text-tertiary);">Total bookings</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label"><span class="kpi-dot" style="background:#EF9F27;"></span>Avg delay</div>
+      <div class="kpi-value">45 min</div>
+      <div class="kpi-sub kpi-down">Above target</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label"><span class="kpi-dot" style="background:#1D9E75;"></span>On-time %</div>
+      <div class="kpi-value">43%</div>
+      <div class="kpi-sub kpi-down">Target: 90%</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label"><span class="kpi-dot" style="background:#E24B4A;"></span>Delay rate</div>
+      <div class="kpi-value">96%</div>
+      <div class="kpi-sub kpi-down">Critical</div>
+    </div>
+  </div>
+
+  <div class="charts-row">
+    <div class="card">
+      <div class="card-title">Flights by airline</div>
+      <div class="bar-row"><span class="bar-label">IndiGo</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:#378ADD;"></div></div><span class="bar-val">113</span></div>
+      <div class="bar-row"><span class="bar-label">Spicejet</span><div class="bar-track"><div class="bar-fill" style="width:98%;background:#378ADD;"></div></div><span class="bar-val">111</span></div>
+      <div class="bar-row"><span class="bar-label">Akasa Air</span><div class="bar-track"><div class="bar-fill" style="width:89%;background:#85B7EB;"></div></div><span class="bar-val">101</span></div>
+      <div class="bar-row"><span class="bar-label">Air India</span><div class="bar-track"><div class="bar-fill" style="width:86%;background:#85B7EB;"></div></div><span class="bar-val">97</span></div>
+      <div class="bar-row"><span class="bar-label">Vistara</span><div class="bar-track"><div class="bar-fill" style="width:78%;background:#B5D4F4;"></div></div><span class="bar-val">88</span></div>
+      <div class="bar-row"><span class="bar-label">AirIndia</span><div class="bar-track"><div class="bar-fill" style="width:4%;background:#B5D4F4;"></div></div><span class="bar-val">5</span></div>
+      <div class="bar-row"><span class="bar-label">AKASA</span><div class="bar-track"><div class="bar-fill" style="width:3%;background:#B5D4F4;"></div></div><span class="bar-val">3</span></div>
+      <div class="bar-row"><span class="bar-label">Air Asia</span><div class="bar-track"><div class="bar-fill" style="width:2%;background:#B5D4F4;"></div></div><span class="bar-val">2</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Delay by reason</div>
+      <div style="position:relative;width:100%;height:160px;"><canvas id="donutChart" role="img" aria-label="Donut chart of delay reasons: ATC 22.14%, Operational 21.99%, Technical 20.49%, Weather 17.39%, Crew 18%.">ATC 22%, Operational 22%, Technical 20%, Weather 17%, Crew 18%.</canvas></div>
+      <div class="legend" style="margin-top:10px;">
+        <span class="legend-item"><span class="legend-sq" style="background:#378ADD;"></span>ATC 22%</span>
+        <span class="legend-item"><span class="legend-sq" style="background:#1D9E75;"></span>Operational 22%</span>
+        <span class="legend-item"><span class="legend-sq" style="background:#EF9F27;"></span>Technical 20%</span>
+        <span class="legend-item"><span class="legend-sq" style="background:#7F77DD;"></span>Weather 17%</span>
+        <span class="legend-item"><span class="legend-sq" style="background:#D85A30;"></span>Crew 18%</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Top airline by performance</div>
+      <div class="perf-row"><span class="perf-label">IndiGo</span><div class="perf-track"><div class="perf-fill" style="width:100%;"></div></div><span class="perf-val">9.23%</span></div>
+      <div class="perf-row"><span class="perf-label">Spicejet</span><div class="perf-track"><div class="perf-fill" style="width:100%;"></div></div><span class="perf-val">9.23%</span></div>
+      <div class="perf-row"><span class="perf-label">Air India</span><div class="perf-track"><div class="perf-fill" style="width:96%;"></div></div><span class="perf-val">8.85%</span></div>
+      <div class="perf-row"><span class="perf-label">Akasa Air</span><div class="perf-track"><div class="perf-fill" style="width:85%;"></div></div><span class="perf-val">7.88%</span></div>
+      <div class="perf-row"><span class="perf-label">Vistara</span><div class="perf-track"><div class="perf-fill" style="width:71%;"></div></div><span class="perf-val">6.54%</span></div>
+      <div class="perf-row"><span class="perf-label">AIRINDIA</span><div class="perf-track"><div class="perf-fill" style="width:10%;background:#B5D4F4;"></div></div><span class="perf-val">0.96%</span></div>
+      <div class="perf-row"><span class="perf-label">Vistara2</span><div class="perf-track"><div class="perf-fill" style="width:6%;background:#B5D4F4;"></div></div><span class="perf-val">0.58%</span></div>
+      <div class="perf-row"><span class="perf-label">AKASA</span><div class="perf-track"><div class="perf-fill" style="width:3%;background:#E6F1FB;"></div></div><span class="perf-val">0.30%</span></div>
+    </div>
+  </div>
+
+  <div class="charts-row2">
+    <div class="card">
+      <div class="card-title">Flight status distribution</div>
+      <div style="position:relative;width:100%;height:160px;"><canvas id="statusChart" role="img" aria-label="Donut chart: 56.56% on time, 43.44% delayed.">On Time: 293 (56.56%), Delayed: 225 (43.44%).</canvas></div>
+      <div class="legend" style="margin-top:10px;justify-content:center;">
+        <span class="legend-item"><span class="legend-sq" style="background:#1D9E75;"></span>On time — 293 (56.6%)</span>
+        <span class="legend-item"><span class="legend-sq" style="background:#E24B4A;"></span>Delayed — 225 (43.4%)</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Revenue by airline</div>
+      <div style="position:relative;width:100%;height:180px;"><canvas id="revenueChart" role="img" aria-label="Bar chart of revenue by airline. IndiGo highest at RM155K, others much lower.">IndiGo RM155K, Vistara RM55K, Spicejet RM35K, AKASA RM14K, Air Asia RM13K, Air India RM12K, Akasa Air RM0K, AIRINDIA RM0K.</canvas></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Delay trend over time</div>
+      <div style="position:relative;width:100%;height:180px;"><canvas id="delayTrend" role="img" aria-label="Line chart of delay rate: 100% in January, dipping to 88.64% in February, rising back to 100% in March.">Jan 100%, Feb 88.64%, Mar 100%.</canvas></div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+const gridC = isDark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.06)';
+const textC = isDark ? '#aaa' : '#888';
+
+new Chart(document.getElementById('donutChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['ATC','Operational','Technical','Weather','Crew'],
+    datasets: [{
+      data: [22.14, 21.99, 20.49, 17.39, 18],
+      backgroundColor: ['#378ADD','#1D9E75','#EF9F27','#7F77DD','#D85A30'],
+      borderWidth: 2,
+      borderColor: isDark ? '#1a1a1a' : '#fff'
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, cutout: '65%',
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ctx.label + ': ' + ctx.parsed.toFixed(1) + '%' } } }
+  }
+});
+
+new Chart(document.getElementById('statusChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['On Time','Delayed'],
+    datasets: [{
+      data: [56.56, 43.44],
+      backgroundColor: ['#1D9E75','#E24B4A'],
+      borderWidth: 2,
+      borderColor: isDark ? '#1a1a1a' : '#fff'
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, cutout: '65%',
+    plugins: { legend: { display: false } }
+  }
+});
+
+new Chart(document.getElementById('revenueChart'), {
+  type: 'bar',
+  data: {
+    labels: ['IndiGo','Vistara','Spicejet','AKASA','Air Asia','Air India','Akasa Air','AIRINDIA'],
+    datasets: [{
+      data: [155000, 55000, 35000, 14000, 13000, 12000, 500, 200],
+      backgroundColor: ['#378ADD','#85B7EB','#85B7EB','#B5D4F4','#B5D4F4','#B5D4F4','#E6F1FB','#E6F1FB'],
+      borderRadius: 4, borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: textC, font: { size: 10 }, maxRotation: 35 }, grid: { display: false }, border: { display: false } },
+      y: { ticks: { color: textC, font: { size: 10 }, callback: v => 'RM' + (v/1000).toFixed(0) + 'K' }, grid: { color: gridC }, border: { display: false } }
+    }
+  }
+});
+
+new Chart(document.getElementById('delayTrend'), {
+  type: 'line',
+  data: {
+    labels: ['January','February','March'],
+    datasets: [{
+      data: [100, 88.64, 100],
+      borderColor: '#378ADD', backgroundColor: '#E6F1FB',
+      fill: true, tension: 0.4, pointBackgroundColor: '#378ADD', pointRadius: 5, borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: textC, font: { size: 10 } }, grid: { display: false }, border: { display: false } },
+      y: { min: 80, max: 105, ticks: { color: textC, font: { size: 10 }, callback: v => v + '%' }, grid: { color: gridC }, border: { display: false } }
+    }
+  }
+});
+</script>
