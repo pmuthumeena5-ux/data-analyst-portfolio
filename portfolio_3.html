@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muthu Meena P — Senior Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f2d52;
+    --blue: #1a5fa8;
+    --blue-mid: #2d7dd2;
+    --blue-light: #e8f2fc;
+    --blue-pale: #f0f6ff;
+    --accent: #3b9eff;
+    --teal: #0d9e82;
+    --text-dark: #0f1c2e;
+    --text-mid: #3a4a5c;
+    --text-muted: #6b7e95;
+    --border: #d6e4f5;
+    --white: #ffffff;
+    --surface: #f7faff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .nav-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
+
+  /* SECTIONS */
+  section { padding: 100px 5%; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(155deg, #f0f6ff 0%, #e4effe 40%, #ffffff 80%);
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(42,125,210,0.10) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  #hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(13,158,130,0.07) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    color: var(--navy);
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+  .hero-tagline {
+    font-size: 1.15rem;
+    color: var(--text-mid);
+    max-width: 480px;
+    line-height: 1.65;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+  .hero-tagline em {
+    font-style: italic;
+    color: var(--blue);
+    font-family: 'DM Serif Display', serif;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--navy);
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: background 0.22s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 18px rgba(15,45,82,0.18);
+  }
+  .btn-primary:hover {
+    background: var(--blue);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(26,95,168,0.28);
+  }
+  .btn-primary svg { transition: transform 0.2s; }
+  .btn-primary:hover svg { transform: translateX(4px); }
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-chart-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(15,45,82,0.10);
+    width: 100%;
+    max-width: 340px;
+  }
+  .chart-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    height: 130px;
+  }
+  .bar-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; }
+  .bar {
+    width: 100%;
+    border-radius: 6px 6px 0 0;
+    animation: growBar 1.2s ease-out forwards;
+    transform-origin: bottom;
+  }
+  .bar-lbl { font-size: 0.7rem; color: var(--text-muted); }
+  @keyframes growBar {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+  .chart-metric {
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .metric-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--navy);
+  }
+  .metric-lbl { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+  .badge-up {
+    background: #e6f9f4;
+    color: var(--teal);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+    color: var(--navy);
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin-bottom: 3rem;
+    line-height: 1.65;
+  }
+  .section-line {
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--accent));
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ABOUT */
+  #about { background: var(--white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .about-text p {
+    color: var(--text-mid);
+    margin-bottom: 1rem;
+    font-size: 1.02rem;
+    line-height: 1.75;
+  }
+  .about-highlight {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .highlight-item { text-align: center; }
+  .highlight-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .highlight-txt { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+  .about-card-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .acard {
+    background: var(--blue-pale);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.1rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .acard:hover {
+    transform: translateX(6px);
+    box-shadow: 0 4px 18px rgba(15,45,82,0.09);
+  }
+  .acard-icon {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    background: var(--blue-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .acard-title { font-size: 0.9rem; font-weight: 600; color: var(--navy); }
+  .acard-sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+
+  /* SKILLS */
+  #skills { background: var(--surface); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.2rem;
+  }
+  .skill-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+    cursor: default;
+  }
+  .skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(15,45,82,0.10);
+    border-color: var(--accent);
+  }
+  .skill-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .skill-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .skill-tag {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--white); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .proj-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .proj-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 56px rgba(15,45,82,0.14);
+  }
+  .proj-header {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .proj-header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(255,255,255,0.18));
+  }
+  .proj-body { padding: 1.4rem 1.5rem 1.6rem; flex: 1; display: flex; flex-direction: column; }
+  .proj-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 0.8rem;
+  }
+  .proj-tool {
+    font-size: 0.7rem;
+    font-weight: 600;
+    background: var(--blue-light);
+    color: var(--blue);
+    padding: 3px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.04em;
+  }
+  .proj-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+    margin-bottom: 0.7rem;
+    line-height: 1.25;
+  }
+  .proj-desc {
+    font-size: 0.875rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin-bottom: 1.1rem;
+    flex: 1;
+  }
+  .proj-highlights { list-style: none; }
+  .proj-highlights li {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    padding: 4px 0;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .proj-highlights li::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .proj-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--blue);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    text-decoration: none;
+    transition: gap 0.2s;
+  }
+  .proj-card:hover .proj-link { gap: 10px; }
+
+  /* DETAIL OVERLAY */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,20,40,0.55);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+  }
+  .overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .detail-card {
+    background: var(--white);
+    border-radius: 22px;
+    max-width: 640px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    box-shadow: 0 40px 100px rgba(10,20,40,0.22);
+    transform: translateY(24px);
+    transition: transform 0.28s;
+  }
+  .overlay.open .detail-card { transform: translateY(0); }
+  .detail-header {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    border-radius: 22px 22px 0 0;
+    position: relative;
+  }
+  .detail-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.85);
+    border: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    color: var(--navy);
+    transition: background 0.18s;
+  }
+  .detail-close:hover { background: #fff; }
+  .detail-body { padding: 2rem 2.2rem 2.5rem; }
+  .detail-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  .detail-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.4rem; }
+  .detail-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 1.4rem 0 0.7rem;
+  }
+  .detail-desc { font-size: 0.97rem; color: var(--text-mid); line-height: 1.7; }
+  .detail-highlights { list-style: none; }
+  .detail-highlights li {
+    font-size: 0.92rem;
+    color: var(--text-mid);
+    padding: 6px 0;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border);
+  }
+  .detail-highlights li:last-child { border-bottom: none; }
+  .detail-highlights li::before {
+    content: '→';
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .detail-impact {
+    background: var(--blue-pale);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-top: 1.2rem;
+    font-size: 0.88rem;
+    color: var(--blue);
+    font-weight: 500;
+    line-height: 1.55;
+  }
+
+  /* PORTFOLIO LINKS */
+  #portfolio { background: var(--surface); }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+  }
+  .port-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.8rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .port-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(15,45,82,0.11);
+  }
+  .port-icon-wrap {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  .port-title { font-size: 1rem; font-weight: 600; color: var(--navy); }
+  .port-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.55; }
+  .port-link-txt {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--blue);
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--navy);
+    color: #fff;
+  }
+  #contact .section-title { color: #fff; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .contact-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.65;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: rgba(255,255,255,0.88);
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 1rem 1.3rem;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 12px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .contact-link:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.3);
+  }
+  .contact-link-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .contact-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 2.5rem;
+  }
+  .contact-quote {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 1.2rem;
+  }
+  .contact-quote em { color: rgba(100,190,255,0.9); font-style: italic; }
+  .contact-note { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+  .section-line-white {
+    width: 48px; height: 3px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.7), rgba(100,190,255,0.6));
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    background: var(--white);
+  }
+
+  /* FADE IN ANIMATION */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* EXPERIENCE */
+  .exp-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.8rem 2rem;
+    transition: box-shadow 0.2s;
+  }
+  .exp-card:hover { box-shadow: 0 8px 32px rgba(15,45,82,0.09); }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .exp-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .exp-company {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--blue);
+    margin-top: 4px;
+  }
+  .exp-date {
+    font-size: 0.78rem;
+    font-weight: 600;
+    background: var(--blue-light);
+    color: var(--blue);
+    padding: 5px 12px;
+    border-radius: 100px;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+  .exp-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .exp-list li {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .exp-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+    top: 3px;
+  }
+  .exp-highlight {
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  /* CERTIFICATIONS */
+  .cert-card {
+    background: var(--blue-pale);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s;
+  }
+  .cert-card:hover { transform: translateX(5px); }
+  .cert-badge {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+  .cert-title { font-size: 0.875rem; font-weight: 600; color: var(--navy); line-height: 1.3; }
+  .cert-issuer { font-size: 0.75rem; color: var(--text-muted); margin-top: 3px; }
+
+  /* VIEW DASHBOARD BUTTON */
+  .btn-view-dash {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--navy);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .btn-view-dash:hover {
+    background: var(--blue);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 800px) {
+    .hero-inner, .about-grid, .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .hero-visual { display: none; }
+    .nav-links { display: none; }
+    section { padding: 70px 6%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Muthu Meena P</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text fade-in">
+      <span class="hero-tag">3+ Years of Experience</span>
+      <h1 class="hero-name">Muthu Meena P</h1>
+      <p style="font-size:1.2rem;font-weight:600;color:var(--blue);margin-bottom:0.8rem;letter-spacing:-0.01em;">Senior Data Analyst</p>
+      <p class="hero-tagline">Designing <em>scalable analytics solutions</em> and KPI-driven dashboards that transform complex enterprise data into strategic business decisions.</p>
+      <a href="#projects" class="btn-primary">
+        View My Projects
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="hero-visual fade-in" style="transition-delay:0.2s">
+      <div class="hero-chart-card">
+        <div class="chart-label">Dashboard KPIs Overview</div>
+        <div class="chart-bars">
+          <div class="bar-wrap">
+            <div class="bar" style="height:65%;background:linear-gradient(180deg,#3b9eff,#1a5fa8);animation-delay:0.1s"></div>
+            <span class="bar-lbl">Q1</span>
+          </div>
+          <div class="bar-wrap">
+            <div class="bar" style="height:80%;background:linear-gradient(180deg,#3b9eff,#1a5fa8);animation-delay:0.2s"></div>
+            <span class="bar-lbl">Q2</span>
+          </div>
+          <div class="bar-wrap">
+            <div class="bar" style="height:58%;background:linear-gradient(180deg,#3b9eff,#1a5fa8);animation-delay:0.3s"></div>
+            <span class="bar-lbl">Q3</span>
+          </div>
+          <div class="bar-wrap">
+            <div class="bar" style="height:95%;background:linear-gradient(180deg,#64c8ff,#3b9eff);animation-delay:0.4s"></div>
+            <span class="bar-lbl">Q4</span>
+          </div>
+        </div>
+        <div class="chart-metric">
+          <div>
+            <div class="metric-num">94.7%</div>
+            <div class="metric-lbl">Data Accuracy Rate</div>
+          </div>
+          <div class="badge-up">▲ +12.4%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <div class="section-line"></div>
+        <h2 class="section-title">About Me</h2>
+        <p>Senior Data Analyst with 3+ years of experience designing scalable analytics solutions, interactive dashboards, and data visualization frameworks across enterprise environments — currently at Mindgraph Technologies.</p>
+        <p>Specialized in transforming complex datasets into business-ready insights using SQL, Python, Power BI, and advanced Excel. Proficient in DAX, Power Query, and Power Pivot for data modeling, ETL automation, and performance optimization.</p>
+        <p>Experienced in building KPI-driven dashboards, developing semantic data models, and delivering executive-level reporting that supports strategic decision-making across cross-functional teams.</p>
+        <div class="about-highlight">
+          <div class="highlight-item">
+            <div class="highlight-num">3+</div>
+            <div class="highlight-txt">Years of<br>Experience</div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-num">10+</div>
+            <div class="highlight-txt">Dashboards<br>Delivered</div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-num">1M+</div>
+            <div class="highlight-txt">Records<br>Processed</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-card-stack fade-in" style="transition-delay:0.15s">
+        <div class="acard">
+          <div class="acard-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a5fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <div>
+            <div class="acard-title">Data Visualization</div>
+            <div class="acard-sub">Tableau • Power BI • Interactive Dashboards</div>
+          </div>
+        </div>
+        <div class="acard">
+          <div class="acard-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a5fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <div>
+            <div class="acard-title">Data Analysis & SQL</div>
+            <div class="acard-sub">Querying • Aggregation • Business Insights</div>
+          </div>
+        </div>
+        <div class="acard">
+          <div class="acard-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a5fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <div class="acard-title">Business Intelligence</div>
+            <div class="acard-sub">KPI Tracking • Trend Analysis • Reporting</div>
+          </div>
+        </div>
+        <div class="acard">
+          <div class="acard-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a5fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div>
+            <div class="acard-title">Microsoft Power Platform</div>
+            <div class="acard-sub">Power Apps • Power Automate • Power BI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background:var(--surface)">
+  <div class="container">
+    <div class="section-line fade-in"></div>
+    <h2 class="section-title fade-in">Professional Experience</h2>
+    <p class="section-sub fade-in">3+ years delivering enterprise analytics and BI solutions at Mindgraph Technologies.</p>
+    <div style="display:flex;flex-direction:column;gap:1.5rem">
+
+      <!-- Role 1 -->
+      <div class="exp-card fade-in">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Business Intelligence Analyst</div>
+            <div class="exp-company">Mindgraph Technologies</div>
+          </div>
+          <div class="exp-date">Mar 2025 – Present</div>
+        </div>
+        <ul class="exp-list">
+          <li>Designed and developed interactive dashboards using <strong>Looker Studio</strong> and <strong>Power BI</strong> to monitor operational performance, SLA compliance, vendor KPIs, and flight performance metrics.</li>
+          <li>Built real-time reporting solutions leveraging <strong>BigQuery</strong> and custom SQL, reducing data retrieval time by <span class="exp-highlight">40%</span> and ensuring <span class="exp-highlight">99%</span> reporting accuracy.</li>
+          <li>Developed and maintained <span class="exp-highlight">10+ dynamic dashboards</span> supporting operational analytics, passenger flow monitoring, and performance benchmarking.</li>
+          <li>Automated manual reporting into dynamic dashboards with drill-down capabilities, reducing report generation time by <span class="exp-highlight">50%</span>.</li>
+          <li>Enabled data-driven operational improvements, contributing to a <span class="exp-highlight">15% increase in efficiency</span> across monitored performance areas.</li>
+        </ul>
+      </div>
+
+      <!-- Role 2 -->
+      <div class="exp-card fade-in" style="transition-delay:0.1s">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Senior Data Analyst</div>
+            <div class="exp-company">Mindgraph Technologies</div>
+          </div>
+          <div class="exp-date">Apr 2024 – Feb 2025</div>
+        </div>
+        <ul class="exp-list">
+          <li>Designed and developed interactive <strong>Power BI dashboards</strong> integrating over <span class="exp-highlight">1M+ records</span>, leveraging Power Query for large-scale data transformation and DAX for advanced KPI calculations.</li>
+          <li>Built scalable data models with optimized relationships and <strong>star schema design</strong>, improving report performance and usability across multiple departments.</li>
+          <li>Implemented automated refresh pipelines, reducing reporting time by <span class="exp-highlight">40%</span> and improving data timeliness by <span class="exp-highlight">50%</span>.</li>
+          <li>Delivered executive-level dashboards to <span class="exp-highlight">10+ stakeholders</span>, increasing user adoption by <span class="exp-highlight">30%</span> through intuitive visualization and data storytelling.</li>
+        </ul>
+      </div>
+
+      <!-- Role 3 -->
+      <div class="exp-card fade-in" style="transition-delay:0.2s">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Data Analyst / BI Developer</div>
+            <div class="exp-company">Mindgraph Technologies</div>
+          </div>
+          <div class="exp-date">Sep 2022 – Mar 2024</div>
+        </div>
+        <ul class="exp-list">
+          <li>Led the migration of enterprise reporting dashboards from <strong>Tableau to Power BI</strong>, redesigning data models and enhancing visualization standards for scalability and governance.</li>
+          <li>Designed and implemented advanced <strong>DAX measures</strong>, calculated columns, and optimized semantic data models, enabling standardized KPI reporting across business units.</li>
+          <li>Delivered real-time executive dashboards, reducing analysis turnaround time by <span class="exp-highlight">30%</span>.</li>
+          <li>Automated recurring reporting workflows using <strong>Power Automate</strong>, reducing manual effort by <span class="exp-highlight">40%</span> while improving data freshness and reliability.</li>
+          <li>Collaborated with cross-functional stakeholders to translate business requirements into dashboards with drill-through, <strong>row-level security (RLS)</strong>, and self-service capabilities.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background:var(--white)">
+  <div class="container">
+    <div class="section-line fade-in"></div>
+    <h2 class="section-title fade-in">Skills & Tools</h2>
+    <p class="section-sub fade-in">Technologies I use to turn raw data into clear, decision-ready insights.</p>
+    <div class="skills-grid">
+      <div class="skill-card fade-in">
+        <div class="skill-icon">🗄️</div>
+        <div class="skill-name">SQL</div>
+        <div class="skill-tag">Advanced Queries</div>
+      </div>
+      <div class="skill-card fade-in" style="transition-delay:0.05s">
+        <div class="skill-icon">🐍</div>
+        <div class="skill-name">Python</div>
+        <div class="skill-tag">EDA & Analysis</div>
+      </div>
+      <div class="skill-card fade-in" style="transition-delay:0.1s">
+        <div class="skill-icon">📊</div>
+        <div class="skill-name">Power BI</div>
+        <div class="skill-tag">DAX · Power Query · Power Pivot</div>
+      </div>
+      <div class="skill-card fade-in" style="transition-delay:0.15s">
+        <div class="skill-icon">📈</div>
+        <div class="skill-name">Tableau</div>
+        <div class="skill-tag">Data Visualization</div>
+      </div>
+      <div class="skill-card fade-in" style="transition-delay:0.2s">
+        <div class="skill-icon">📋</div>
+        <div class="skill-name">Advanced Excel</div>
+        <div class="skill-tag">Pivot · Power Pivot · VBA</div>
+      </div>
+      <div class="skill-card fade-in" style="transition-delay:0.25s">
+        <div class="skill-icon">☁️</div>
+        <div class="skill-name">AWS</div>
+        <div class="skill-tag">Athena · Redshift · S3</div>
+      </div>
+      <div class="skill-card fade-in" style="transition-delay:0.3s">
+        <div class="skill-icon">🔵</div>
+        <div class="skill-name">GCP / BigQuery</div>
+        <div class="skill-tag">BigQuery · Looker Studio</div>
+      </div>
+      <div class="skill-card fade-in" style="transition-delay:0.35s">
+        <div class="skill-icon">⚡</div>
+        <div class="skill-name">Power Platform</div>
+        <div class="skill-tag">Power Apps · Power Automate</div>
+      </div>
+      <div class="skill-card fade-in" style="transition-delay:0.4s">
+        <div class="skill-icon">🔄</div>
+        <div class="skill-name">ETL & Automation</div>
+        <div class="skill-tag">Power Query · Power Automate</div>
+      </div>
+      <div class="skill-card fade-in" style="transition-delay:0.45s">
+        <div class="skill-icon">🧮</div>
+        <div class="skill-name">DAX</div>
+        <div class="skill-tag">KPI Modeling · Calculations</div>
+      </div>
+      <div class="skill-card fade-in" style="transition-delay:0.5s">
+        <div class="skill-icon">📉</div>
+        <div class="skill-name">Data Modeling</div>
+        <div class="skill-tag">Star Schema · Semantic Models</div>
+      </div>
+      <div class="skill-card fade-in" style="transition-delay:0.55s">
+        <div class="skill-icon">🔬</div>
+        <div class="skill-name">Statistical Analysis</div>
+        <div class="skill-tag">Forecasting · Trend Analysis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-line fade-in"></div>
+    <h2 class="section-title fade-in">Featured Projects</h2>
+    <p class="section-sub fade-in">Click any project to explore the full analysis, methodology, and business impact.</p>
+    <div class="projects-grid">
+
+      <div class="proj-card fade-in" onclick="openDetail('airline')">
+        <div class="proj-header" style="background:linear-gradient(135deg,#e8f2fc,#cce2f8)">✈️</div>
+        <div class="proj-body">
+          <div class="proj-tools">
+            <span class="proj-tool">Tableau</span>
+            <span class="proj-tool">Power BI</span>
+          </div>
+          <div class="proj-title">Airline Performance Dashboard</div>
+          <div class="proj-desc">Uncovered patterns in flight delays and revenue trends to help airlines optimize scheduling and improve on-time performance across routes.</div>
+          <ul class="proj-highlights">
+            <li>Diagnosed key causes of delays to support operational fixes</li>
+            <li>Benchmarked airline performance to surface competitive gaps</li>
+          </ul>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
+            <span class="proj-link" style="margin-top:0;padding-top:0;border-top:none">Explore Details <span>→</span></span>
+            <a href="https://public.tableau.com/app/profile/muthu.meena5557" target="_blank" onclick="event.stopPropagation()" class="btn-view-dash">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-in" style="transition-delay:0.08s" onclick="openDetail('flight')">
+        <div class="proj-header" style="background:linear-gradient(135deg,#e6f4f0,#c0e8dc)">🛫</div>
+        <div class="proj-body">
+          <div class="proj-tools">
+            <span class="proj-tool">Power BI</span>
+            <span class="proj-tool">Tableau</span>
+          </div>
+          <div class="proj-title">Flight Performance Dashboard</div>
+          <div class="proj-desc">Delivered deep operational insights into flight efficiency and delay patterns, enabling airlines to make data-backed improvements across their networks.</div>
+          <ul class="proj-highlights">
+            <li>Mapped delay patterns over time to reveal systemic issues</li>
+            <li>Evaluated efficiency metrics to guide fleet decisions</li>
+          </ul>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
+            <span class="proj-link" style="margin-top:0;padding-top:0;border-top:none">Explore Details <span>→</span></span>
+            <a href="https://public.tableau.com/app/profile/muthu.meena5557" target="_blank" onclick="event.stopPropagation()" class="btn-view-dash">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-in" style="transition-delay:0.16s" onclick="openDetail('hr')">
+        <div class="proj-header" style="background:linear-gradient(135deg,#fef0e8,#fcdfc6)">👥</div>
+        <div class="proj-body">
+          <div class="proj-tools">
+            <span class="proj-tool">Power BI</span>
+            <span class="proj-tool">Tableau</span>
+          </div>
+          <div class="proj-title">HR Analytics Dashboard</div>
+          <div class="proj-desc">Translated workforce data into actionable retention intelligence, helping HR leaders identify at-risk employees and address satisfaction gaps before attrition occurs.</div>
+          <ul class="proj-highlights">
+            <li>Identified departments with highest attrition risk</li>
+            <li>Surfaced key satisfaction drivers to inform HR policy</li>
+          </ul>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
+            <span class="proj-link" style="margin-top:0;padding-top:0;border-top:none">Explore Details <span>→</span></span>
+            <a href="https://public.tableau.com/app/profile/muthu.meena5557" target="_blank" onclick="event.stopPropagation()" class="btn-view-dash">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-in" style="transition-delay:0.24s" onclick="openDetail('sales')">
+        <div class="proj-header" style="background:linear-gradient(135deg,#eeeaff,#d4cdf8)">💰</div>
+        <div class="proj-body">
+          <div class="proj-tools">
+            <span class="proj-tool">Power BI</span>
+            <span class="proj-tool">Tableau</span>
+          </div>
+          <div class="proj-title">Sales Performance Dashboard</div>
+          <div class="proj-desc">Built a revenue intelligence tool that revealed which products, regions, and time periods drove growth — enabling leadership to invest resources where returns are highest.</div>
+          <ul class="proj-highlights">
+            <li>Pinpointed top-performing regions and product lines</li>
+            <li>Tracked growth trends to inform sales strategy</li>
+          </ul>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
+            <span class="proj-link" style="margin-top:0;padding-top:0;border-top:none">Explore Details <span>→</span></span>
+            <a href="https://public.tableau.com/app/profile/muthu.meena5557" target="_blank" onclick="event.stopPropagation()" class="btn-view-dash">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO LINKS -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-line fade-in"></div>
+    <h2 class="section-title fade-in">View My Work</h2>
+    <p class="section-sub fade-in">Explore my live dashboards and code repositories.</p>
+    <div class="portfolio-grid">
+      <a href="https://public.tableau.com/app/profile/muthu.meena5557" target="_blank" class="port-card fade-in">
+        <div class="port-icon-wrap" style="background:#e8f2fc">
+          <span style="font-size:1.6rem">📊</span>
+        </div>
+        <div class="port-title">Tableau Public Profile</div>
+        <div class="port-desc">Browse all interactive dashboards and published visualizations on my Tableau Public page.</div>
+        <span class="port-link-txt">Visit Profile →</span>
+      </a>
+      <a href="#" class="port-card fade-in" style="transition-delay:0.08s">
+        <div class="port-icon-wrap" style="background:#fff0e8">
+          <span style="font-size:1.6rem">⚡</span>
+        </div>
+        <div class="port-title">Power BI Dashboards</div>
+        <div class="port-desc">Explore published Power BI reports and business intelligence dashboards.</div>
+        <span class="port-link-txt">View Dashboards →</span>
+      </a>
+      <a href="https://github.com/pmuthumeena5-ux/data-analyst-portfolio" target="_blank" class="port-card fade-in" style="transition-delay:0.16s">
+        <div class="port-icon-wrap" style="background:#f0eeff">
+          <span style="font-size:1.6rem">💻</span>
+        </div>
+        <div class="port-title">GitHub Profile</div>
+        <div class="port-desc">View SQL scripts, Python notebooks, and project source code on GitHub.</div>
+        <span class="port-link-txt">Visit GitHub →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION & CERTIFICATIONS -->
+<section id="education" style="background:var(--white)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start">
+
+      <div class="fade-in">
+        <div class="section-line"></div>
+        <h2 class="section-title" style="font-size:1.8rem">Education</h2>
+        <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem">
+          <div class="acard">
+            <div class="acard-icon">🎓</div>
+            <div>
+              <div class="acard-title">M.Sc. in Data Analytics</div>
+              <div class="acard-sub">PSGR Krishnammal College for Women</div>
+            </div>
+          </div>
+          <div class="acard">
+            <div class="acard-icon">🎓</div>
+            <div>
+              <div class="acard-title">B.Com. in Computer Applications</div>
+              <div class="acard-sub">PSGR Krishnammal College for Women</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in" style="transition-delay:0.1s">
+        <div class="section-line"></div>
+        <h2 class="section-title" style="font-size:1.8rem">Certifications</h2>
+        <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem">
+          <div class="cert-card">
+            <div class="cert-badge" style="background:#e8f2fc;color:#1a5fa8">MS</div>
+            <div>
+              <div class="cert-title">PL-300: Microsoft Power BI Data Analyst Associate</div>
+              <div class="cert-issuer">Microsoft</div>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-badge" style="background:#e8f4ff;color:#0078d4">AZ</div>
+            <div>
+              <div class="cert-title">AI-900: Microsoft Azure AI Fundamentals</div>
+              <div class="cert-issuer">Microsoft</div>
+            </div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-badge" style="background:#e6f4f0;color:#0d9e82">AZ</div>
+            <div>
+              <div class="cert-title">AZ-900: Microsoft Azure Fundamentals</div>
+              <div class="cert-issuer">Microsoft</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="fade-in">
+        <div class="section-line-white"></div>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="contact-sub">With 3+ years of experience delivering data solutions, I'm open to new opportunities where I can bring analytical depth and business impact. Let's start a conversation.</p>
+        <div class="contact-links">
+          <a href="mailto:pmuthumeena5@gmail.com" class="contact-link">
+            <div class="contact-link-icon">✉️</div>
+            <div>
+              <div style="font-weight:600;font-size:0.9rem">Email</div>
+              <div style="font-size:0.8rem;color:rgba(255,255,255,0.55)">pmuthumeena5@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/muthu-meena-p-58a1a2226" target="_blank" class="contact-link">
+            <div class="contact-link-icon">💼</div>
+            <div>
+              <div style="font-weight:600;font-size:0.9rem">LinkedIn</div>
+              <div style="font-size:0.8rem;color:rgba(255,255,255,0.55)">linkedin.com/in/muthu-meena-p-58a1a2226</div>
+            </div>
+          </a>
+          <a href="https://github.com/pmuthumeena5-ux/data-analyst-portfolio" target="_blank" class="contact-link">
+            <div class="contact-link-icon">💻</div>
+            <div>
+              <div style="font-weight:600;font-size:0.9rem">GitHub</div>
+              <div style="font-size:0.8rem;color:rgba(255,255,255,0.55)">github.com/pmuthumeena5-ux</div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-card fade-in" style="transition-delay:0.15s">
+        <div class="contact-quote">"Data is not just numbers — it's the <em>story behind every business decision.</em>"</div>
+        <p class="contact-note">— Muthumeena P, Data Analyst</p>
+        <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.12)">
+          <div style="font-size:0.78rem;color:rgba(255,255,255,0.45);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem">Open to roles in</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);font-size:0.78rem;padding:5px 12px;border-radius:100px">Senior Data Analyst</span>
+            <span style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);font-size:0.78rem;padding:5px 12px;border-radius:100px">BI Developer</span>
+            <span style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);font-size:0.78rem;padding:5px 12px;border-radius:100px">Analytics Engineer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Muthu Meena P · Senior Data Analyst · Mindgraph Technologies</p>
+</footer>
+
+<!-- PROJECT DETAIL OVERLAYS -->
+<div class="overlay" id="overlay" onclick="closeDetail(event)">
+  <div class="detail-card" id="detailCard">
+    <div class="detail-header" id="detailHeader">
+      <button class="detail-close" onclick="closeDetailBtn()">✕</button>
+    </div>
+    <div class="detail-body">
+      <div class="detail-tools" id="detailTools"></div>
+      <h2 class="detail-title" id="detailTitle"></h2>
+      <div class="detail-section-title">Project Overview</div>
+      <p class="detail-desc" id="detailDesc"></p>
+      <div class="detail-section-title">Key Contributions & Impact</div>
+      <ul class="detail-highlights" id="detailHighlights"></ul>
+      <div class="detail-impact" id="detailImpact"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const projects = {
+  airline: {
+    emoji: '✈️',
+    bg: 'linear-gradient(135deg,#e8f2fc,#cce2f8)',
+    title: 'Airline Performance Dashboard',
+    tools: ['Tableau', 'Power BI'],
+    desc: 'Developed a comprehensive interactive dashboard to analyze airline performance metrics including delays, cancellations, and revenue trends across multiple carriers and time periods. The goal was to surface operational bottlenecks and support strategic planning for airline management teams.',
+    highlights: [
+      'Monitored flight delay rates and on-time performance across 20+ airlines to benchmark operational standards',
+      'Identified the top 5 systemic delay causes — including weather, carrier, and NAS delays — enabling targeted operational response',
+      'Compared airline efficiency head-to-head, surfacing underperformers and high performers for executive reporting',
+      'Visualized revenue trends against operational metrics to uncover correlation between delays and financial impact'
+    ],
+    impact: '💡 Business Impact: The analysis helped stakeholders understand that a 10% reduction in carrier-controllable delays could directly improve customer satisfaction scores and reduce compensation costs.'
+  },
+  flight: {
+    emoji: '🛫',
+    bg: 'linear-gradient(135deg,#e6f4f0,#c0e8dc)',
+    title: 'Flight Performance Dashboard',
+    tools: ['Power BI', 'Tableau'],
+    desc: 'Built a focused operational dashboard to measure and track flight efficiency KPIs over time. The dashboard enabled aviation analysts and operations managers to monitor performance trends and proactively address inefficiencies before they escalate.',
+    highlights: [
+      'Analyzed flight volume trends across months and seasons, helping teams plan capacity and staffing proactively',
+      'Tracked delay patterns over 12+ months to distinguish seasonal patterns from structural operational issues',
+      'Evaluated airline efficiency ratios — including load factor and turnaround time — to guide fleet utilization decisions',
+      'Designed drill-through pages allowing users to go from high-level KPIs to root-cause analysis in one click'
+    ],
+    impact: '💡 Business Impact: By segmenting delay types and their frequency, the dashboard enabled ops teams to reduce tarmac delays by focusing resources on the highest-impact causes first.'
+  },
+  hr: {
+    emoji: '👥',
+    bg: 'linear-gradient(135deg,#fef0e8,#fcdfc6)',
+    title: 'HR Analytics Dashboard',
+    tools: ['Power BI', 'Tableau'],
+    desc: 'Created a people analytics dashboard to help HR leaders understand employee attrition patterns, workforce demographics, and job satisfaction trends. The project transformed scattered HR data into a clear picture of retention risks and organizational health.',
+    highlights: [
+      'Identified attrition hotspots by department, tenure, and role — highlighting where retention strategies were most urgently needed',
+      'Analyzed demographic data to ensure equitable distribution of growth and development opportunities across the organization',
+      'Highlighted key job satisfaction factors (compensation, manager ratings, work-life balance) affecting employee decisions to leave',
+      'Built a predictive attrition risk score using available HR attributes to flag employees most likely to resign in the next quarter'
+    ],
+    impact: '💡 Business Impact: The dashboard directly informed a targeted retention program for high-risk departments, giving HR leadership data to justify budget for employee engagement initiatives.'
+  },
+  sales: {
+    emoji: '💰',
+    bg: 'linear-gradient(135deg,#eeeaff,#d4cdf8)',
+    title: 'Sales Performance Dashboard',
+    tools: ['Power BI', 'Tableau'],
+    desc: 'Developed a revenue intelligence dashboard to track sales performance across products, regions, and time. The dashboard gave sales leadership a clear view of what was growing, what was lagging, and where to focus resources for maximum ROI.',
+    highlights: [
+      'Tracked monthly and quarterly revenue growth with YoY comparisons, enabling leadership to quickly assess business health',
+      'Analyzed product and category performance to identify the top 20% of SKUs generating 80% of revenue',
+      'Identified high-performing regions and underperforming territories, supporting targeted sales team deployment',
+      'Built dynamic filters enabling sales managers to slice data by rep, region, category, and time period for personalized insights'
+    ],
+    impact: '💡 Business Impact: By identifying that 3 product categories drove 70% of profit margin, the company reallocated marketing spend to these lines — resulting in a measurable improvement in quarterly profitability.'
+  }
+};
+
+function openDetail(key) {
+  const p = projects[key];
+  document.getElementById('detailHeader').style.background = p.bg;
+  document.getElementById('detailHeader').innerHTML = `<span style="font-size:4rem">${p.emoji}</span><button class="detail-close" onclick="closeDetailBtn()">✕</button>`;
+  document.getElementById('detailTitle').textContent = p.title;
+  document.getElementById('detailTools').innerHTML = p.tools.map(t => `<span class="proj-tool">${t}</span>`).join('');
+  document.getElementById('detailDesc').textContent = p.desc;
+  document.getElementById('detailHighlights').innerHTML = p.highlights.map(h => `<li>${h}</li>`).join('');
+  document.getElementById('detailImpact').textContent = p.impact;
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDetail(e) {
+  if (e.target === document.getElementById('overlay')) closeDetailBtn();
+}
+function closeDetailBtn() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Fade-in on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+// Keyboard close
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetailBtn(); });
+</script>
+</body>
+</html>
