@@ -790,6 +790,9 @@
     transform: translateY(-1px);
   }
 
+  @keyframes drawLine { to { stroke-dashoffset: 0; } }
+  @keyframes fadeIn { to { opacity: 1; } }
+
   @media (max-width: 800px) {
     .hero-inner, .about-grid, .contact-grid {
       grid-template-columns: 1fr;
@@ -832,28 +835,67 @@
     <div class="hero-visual fade-in" style="transition-delay:0.2s">
       <div class="hero-chart-card">
         <div class="chart-label">Dashboard KPIs Overview</div>
-        <div class="chart-bars">
-          <div class="bar-wrap">
-            <div class="bar" style="height:65%;background:linear-gradient(180deg,#3b9eff,#1a5fa8);animation-delay:0.1s"></div>
-            <span class="bar-lbl">Q1</span>
+
+        <!-- Mini KPI row -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px">
+          <div style="background:#f0f6ff;border-radius:10px;padding:10px 8px;text-align:center">
+            <div style="font-size:1.1rem;font-weight:700;color:#0f2d52;line-height:1" id="kpi1">99%</div>
+            <div style="font-size:0.62rem;color:#6b7e95;margin-top:3px">Accuracy</div>
           </div>
-          <div class="bar-wrap">
-            <div class="bar" style="height:80%;background:linear-gradient(180deg,#3b9eff,#1a5fa8);animation-delay:0.2s"></div>
-            <span class="bar-lbl">Q2</span>
+          <div style="background:#e6f9f4;border-radius:10px;padding:10px 8px;text-align:center">
+            <div style="font-size:1.1rem;font-weight:700;color:#0d9e82;line-height:1">−40%</div>
+            <div style="font-size:0.62rem;color:#6b7e95;margin-top:3px">Report Time</div>
           </div>
-          <div class="bar-wrap">
-            <div class="bar" style="height:58%;background:linear-gradient(180deg,#3b9eff,#1a5fa8);animation-delay:0.3s"></div>
-            <span class="bar-lbl">Q3</span>
-          </div>
-          <div class="bar-wrap">
-            <div class="bar" style="height:95%;background:linear-gradient(180deg,#64c8ff,#3b9eff);animation-delay:0.4s"></div>
-            <span class="bar-lbl">Q4</span>
+          <div style="background:#fff3e6;border-radius:10px;padding:10px 8px;text-align:center">
+            <div style="font-size:1.1rem;font-weight:700;color:#c47a15;line-height:1">+30%</div>
+            <div style="font-size:0.62rem;color:#6b7e95;margin-top:3px">Adoption</div>
           </div>
         </div>
-        <div class="chart-metric">
+
+        <!-- Animated bar chart -->
+        <div style="position:relative">
+          <div style="display:flex;align-items:flex-end;gap:8px;height:100px;padding-bottom:2px">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+              <div class="bar" style="width:100%;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#3b9eff,#1a5fa8);animation-delay:0.1s;height:60%"></div>
+              <span class="bar-lbl">Q1</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+              <div class="bar" style="width:100%;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#3b9eff,#1a5fa8);animation-delay:0.2s;height:75%"></div>
+              <span class="bar-lbl">Q2</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+              <div class="bar" style="width:100%;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#3b9eff,#1a5fa8);animation-delay:0.3s;height:55%"></div>
+              <span class="bar-lbl">Q3</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+              <div class="bar" style="width:100%;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#64c8ff,#3b9eff);animation-delay:0.4s;height:92%"></div>
+              <span class="bar-lbl">Q4</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sparkline SVG -->
+        <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <span style="font-size:0.7rem;font-weight:600;color:var(--text-muted);letter-spacing:0.06em;text-transform:uppercase">Revenue Trend</span>
+            <span class="badge-up" style="font-size:0.68rem">▲ +15%</span>
+          </div>
+          <svg viewBox="0 0 260 50" width="100%" height="42" style="overflow:visible">
+            <defs>
+              <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3b9eff" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#3b9eff" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,40 C20,35 40,28 65,22 C90,16 110,30 130,18 C150,6 175,12 200,8 C220,5 240,4 260,2" fill="none" stroke="#3b9eff" stroke-width="2.5" stroke-linecap="round" style="stroke-dasharray:400;stroke-dashoffset:400;animation:drawLine 1.6s 0.5s ease forwards"/>
+            <path d="M0,40 C20,35 40,28 65,22 C90,16 110,30 130,18 C150,6 175,12 200,8 C220,5 240,4 260,2 L260,50 L0,50Z" fill="url(#sparkGrad)" style="opacity:0;animation:fadeIn 0.5s 1.8s forwards"/>
+          </svg>
+        </div>
+
+        <div class="chart-metric" style="margin-top:8px;padding-top:10px">
           <div>
-            <div class="metric-num">94.7%</div>
-            <div class="metric-lbl">Data Accuracy Rate</div>
+            <div class="metric-num">1M+</div>
+            <div class="metric-lbl">Records Processed</div>
           </div>
           <div class="badge-up">▲ +12.4%</div>
         </div>
@@ -1061,6 +1103,11 @@
         <div class="skill-name">Statistical Analysis</div>
         <div class="skill-tag">Forecasting · Trend Analysis</div>
       </div>
+      <div class="skill-card fade-in" style="transition-delay:0.6s">
+        <div class="skill-icon">📡</div>
+        <div class="skill-name">Google Data Studio</div>
+        <div class="skill-tag">Looker Studio · Reporting</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1070,15 +1117,15 @@
   <div class="container">
     <div class="section-line fade-in"></div>
     <h2 class="section-title fade-in">Featured Projects</h2>
-    <p class="section-sub fade-in">Click any project to explore the full analysis, methodology, and business impact.</p>
+    <p class="section-sub fade-in">Personal projects built to sharpen skills across domains — in addition to live enterprise dashboards delivered at Mindgraph Technologies. Click any card to explore the full details.</p>
     <div class="projects-grid">
 
       <div class="proj-card fade-in" onclick="openDetail('airline')">
         <div class="proj-header" style="background:linear-gradient(135deg,#e8f2fc,#cce2f8)">✈️</div>
         <div class="proj-body">
           <div class="proj-tools">
-            <span class="proj-tool">Tableau</span>
             <span class="proj-tool">Power BI</span>
+            <span class="proj-tool" style="background:#f0eeff;color:#6b4fc8">Personal Project</span>
           </div>
           <div class="proj-title">Airline Performance Dashboard</div>
           <div class="proj-desc">Uncovered patterns in flight delays and revenue trends to help airlines optimize scheduling and improve on-time performance across routes.</div>
@@ -1088,9 +1135,9 @@
           </ul>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
             <span class="proj-link" style="margin-top:0;padding-top:0;border-top:none">Explore Details <span>→</span></span>
-            <a href="https://public.tableau.com/app/profile/muthu.meena5557" target="_blank" onclick="event.stopPropagation()" class="btn-view-dash">
+            <a href="https://github.com/pmuthumeena5-ux/data-analyst-portfolio" target="_blank" onclick="event.stopPropagation()" class="btn-view-dash">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              View Dashboard
+              View on GitHub
             </a>
           </div>
         </div>
@@ -1101,7 +1148,7 @@
         <div class="proj-body">
           <div class="proj-tools">
             <span class="proj-tool">Power BI</span>
-            <span class="proj-tool">Tableau</span>
+            <span class="proj-tool" style="background:#f0eeff;color:#6b4fc8">Personal Project</span>
           </div>
           <div class="proj-title">Flight Performance Dashboard</div>
           <div class="proj-desc">Delivered deep operational insights into flight efficiency and delay patterns, enabling airlines to make data-backed improvements across their networks.</div>
@@ -1111,9 +1158,9 @@
           </ul>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
             <span class="proj-link" style="margin-top:0;padding-top:0;border-top:none">Explore Details <span>→</span></span>
-            <a href="https://public.tableau.com/app/profile/muthu.meena5557" target="_blank" onclick="event.stopPropagation()" class="btn-view-dash">
+            <a href="https://github.com/pmuthumeena5-ux/data-analyst-portfolio" target="_blank" onclick="event.stopPropagation()" class="btn-view-dash">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              View Dashboard
+              View on GitHub
             </a>
           </div>
         </div>
@@ -1123,8 +1170,8 @@
         <div class="proj-header" style="background:linear-gradient(135deg,#fef0e8,#fcdfc6)">👥</div>
         <div class="proj-body">
           <div class="proj-tools">
-            <span class="proj-tool">Power BI</span>
-            <span class="proj-tool">Tableau</span>
+            <span class="proj-tool" style="background:#e8f5ee;color:#0d6e4f">Tableau</span>
+            <span class="proj-tool" style="background:#f0eeff;color:#6b4fc8">Personal Project</span>
           </div>
           <div class="proj-title">HR Analytics Dashboard</div>
           <div class="proj-desc">Translated workforce data into actionable retention intelligence, helping HR leaders identify at-risk employees and address satisfaction gaps before attrition occurs.</div>
@@ -1134,7 +1181,7 @@
           </ul>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
             <span class="proj-link" style="margin-top:0;padding-top:0;border-top:none">Explore Details <span>→</span></span>
-            <a href="https://public.tableau.com/app/profile/muthu.meena5557" target="_blank" onclick="event.stopPropagation()" class="btn-view-dash">
+            <a href="https://public.tableau.com/app/profile/muthu.meena5557" target="_blank" onclick="event.stopPropagation()" class="btn-view-dash" style="background:#1a6e4a">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               View Dashboard
             </a>
@@ -1146,8 +1193,8 @@
         <div class="proj-header" style="background:linear-gradient(135deg,#eeeaff,#d4cdf8)">💰</div>
         <div class="proj-body">
           <div class="proj-tools">
-            <span class="proj-tool">Power BI</span>
-            <span class="proj-tool">Tableau</span>
+            <span class="proj-tool" style="background:#e8f5ee;color:#0d6e4f">Tableau</span>
+            <span class="proj-tool" style="background:#f0eeff;color:#6b4fc8">Personal Project</span>
           </div>
           <div class="proj-title">Sales Performance Dashboard</div>
           <div class="proj-desc">Built a revenue intelligence tool that revealed which products, regions, and time periods drove growth — enabling leadership to invest resources where returns are highest.</div>
@@ -1157,7 +1204,7 @@
           </ul>
           <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
             <span class="proj-link" style="margin-top:0;padding-top:0;border-top:none">Explore Details <span>→</span></span>
-            <a href="https://public.tableau.com/app/profile/muthu.meena5557" target="_blank" onclick="event.stopPropagation()" class="btn-view-dash">
+            <a href="https://public.tableau.com/app/profile/muthu.meena5557" target="_blank" onclick="event.stopPropagation()" class="btn-view-dash" style="background:#1a6e4a">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               View Dashboard
             </a>
@@ -1166,6 +1213,14 @@
       </div>
 
     </div>
+
+    <!-- Legend -->
+    <div style="display:flex;gap:1.5rem;margin-top:2rem;padding:1rem 1.4rem;background:var(--surface);border-radius:12px;border:1px solid var(--border);flex-wrap:wrap;align-items:center">
+      <span style="font-size:0.78rem;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;text-transform:uppercase">Dashboard type:</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-mid)"><span style="background:#e8f5ee;color:#0d6e4f;font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:100px">Tableau</span> — Live on Tableau Public</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-mid)"><span style="background:#e8f2fc;color:#1a5fa8;font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:100px">Power BI</span> — Source code on GitHub</span>
+    </div>
+
   </div>
 </section>
 
@@ -1197,7 +1252,7 @@
           <span style="font-size:1.6rem">💻</span>
         </div>
         <div class="port-title">GitHub Profile</div>
-        <div class="port-desc">View SQL scripts, Python notebooks, and project source code on GitHub.</div>
+        <div class="port-desc">View SQL scripts, Python notebooks, Power BI (.pbix) files, and project source code on GitHub.</div>
         <span class="port-link-txt">Visit GitHub →</span>
       </a>
     </div>
