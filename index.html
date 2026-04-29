@@ -1212,6 +1212,31 @@
         </div>
       </div>
 
+      <!-- PMO Project -->
+      <div class="proj-card fade-in" style="transition-delay:0.32s" onclick="openDetail('pmo')">
+        <div class="proj-header" style="background:linear-gradient(135deg,#e8f8f0,#b6ecd4)">🧠</div>
+        <div class="proj-body">
+          <div class="proj-tools">
+            <span class="proj-tool" style="background:#e8f5f0;color:#0d7a55">Looker Studio</span>
+            <span class="proj-tool" style="background:#fef6e4;color:#b07d10">Google Sheets</span>
+            <span class="proj-tool" style="background:#f0eeff;color:#6b4fc8">Personal Project</span>
+          </div>
+          <div class="proj-title">PMO Projects Dashboard</div>
+          <div class="proj-desc">Built an interactive PMO dashboard that consolidates project performance, financial health, and risk indicators into a single real-time view — enabling stakeholders to monitor progress and act on delays before they escalate.</div>
+          <ul class="proj-highlights">
+            <li>Tracked budget utilization and contract values across divisions</li>
+            <li>Identified project risks, delays, and incident safety trends</li>
+          </ul>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
+            <span class="proj-link" style="margin-top:0;padding-top:0;border-top:none">Explore Details <span>→</span></span>
+            <a href="https://datastudio.google.com/u/0/reporting/d72ab3fa-a121-4360-a6bb-9f63e488bfe9/page/qBiwF" target="_blank" onclick="event.stopPropagation()" class="btn-view-dash" style="background:#0d7a55">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Legend -->
@@ -1219,6 +1244,7 @@
       <span style="font-size:0.78rem;font-weight:600;color:var(--text-muted);letter-spacing:0.05em;text-transform:uppercase">Dashboard type:</span>
       <span style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-mid)"><span style="background:#e8f5ee;color:#0d6e4f;font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:100px">Tableau</span> — Live on Tableau Public</span>
       <span style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-mid)"><span style="background:#e8f2fc;color:#1a5fa8;font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:100px">Power BI</span> — Source code on GitHub</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--text-mid)"><span style="background:#e8f5f0;color:#0d7a55;font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:100px">Looker Studio</span> — Live interactive dashboard</span>
     </div>
 
   </div>
@@ -1383,6 +1409,10 @@
       <div class="detail-section-title">Key Contributions & Impact</div>
       <ul class="detail-highlights" id="detailHighlights"></ul>
       <div class="detail-impact" id="detailImpact"></div>
+      <a id="detailLiveLink" href="#" target="_blank" style="display:none;margin-top:1.5rem;align-items:center;gap:8px;background:#0d7a55;color:#fff;padding:11px 22px;border-radius:8px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:background 0.2s" onmouseover="this.style.background='#0b6045'" onmouseout="this.style.background='#0d7a55'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View Live Dashboard
+      </a>
     </div>
   </div>
 </div>
@@ -1444,6 +1474,22 @@ const projects = {
       'Built dynamic filters enabling sales managers to slice data by rep, region, category, and time period for personalized insights'
     ],
     impact: '💡 Business Impact: By identifying that 3 product categories drove 70% of profit margin, the company reallocated marketing spend to these lines — resulting in a measurable improvement in quarterly profitability.'
+  },
+  pmo: {
+    emoji: '🧠',
+    bg: 'linear-gradient(135deg,#e8f8f0,#b6ecd4)',
+    title: 'PMO Projects Dashboard – Project Performance & Financial Insights',
+    tools: ['Looker Studio', 'Google Sheets', 'Calculated Fields'],
+    url: 'https://datastudio.google.com/u/0/reporting/d72ab3fa-a121-4360-a6bb-9f63e488bfe9/page/qBiwF',
+    desc: 'An interactive PMO (Project Management Office) dashboard designed to provide a real-time overview of project performance, financial health, and risk indicators. The dashboard consolidates project data into a single unified view, enabling stakeholders to monitor progress, track budget utilization, identify delays, and analyze incident trends efficiently — all without manual reporting.',
+    highlights: [
+      'Monitored overall project performance across divisions, providing leadership with a single source of truth for portfolio health',
+      'Tracked budget utilization and contract values in real time, surfacing financial risks before they became overruns',
+      'Identified project risks and delays early, enabling project managers to intervene and protect delivery timelines',
+      'Analyzed incident trends and safety metrics to support compliance reporting and proactive risk management',
+      'Designed calculated fields and data transformation logic in Google Sheets to simulate a production-grade data model'
+    ],
+    impact: '💡 Business Impact: By consolidating fragmented project data into one interactive dashboard, this solution eliminates manual status reporting and empowers PMO leaders to make faster, data-backed decisions on resource allocation and risk escalation.'
   }
 };
 
@@ -1456,6 +1502,13 @@ function openDetail(key) {
   document.getElementById('detailDesc').textContent = p.desc;
   document.getElementById('detailHighlights').innerHTML = p.highlights.map(h => `<li>${h}</li>`).join('');
   document.getElementById('detailImpact').textContent = p.impact;
+  const linkEl = document.getElementById('detailLiveLink');
+  if (p.url) {
+    linkEl.href = p.url;
+    linkEl.style.display = 'inline-flex';
+  } else {
+    linkEl.style.display = 'none';
+  }
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
