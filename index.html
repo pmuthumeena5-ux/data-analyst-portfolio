@@ -1237,6 +1237,30 @@
         </div>
       </div>
 
+      <!-- Media Campaign Analytics Project -->
+      <div class="proj-card fade-in" style="transition-delay:0.4s" onclick="openDetail('media')">
+        <div class="proj-header" style="background:linear-gradient(135deg,#fdeef5,#f7c6dc)">📣</div>
+        <div class="proj-body">
+          <div class="proj-tools">
+            <span class="proj-tool">Power BI</span>
+            <span class="proj-tool" style="background:#f0eeff;color:#6b4fc8">Personal Project</span>
+          </div>
+          <div class="proj-title">Media Campaign Analytics Dashboard</div>
+          <div class="proj-desc">Built a comprehensive Power BI dashboard to monitor and evaluate digital marketing campaign performance across multiple advertising platforms — turning fragmented ad data into a single source of truth for marketing ROI.</div>
+          <ul class="proj-highlights">
+            <li>Tracked CTR, CPC, CPA, and ROAS to identify the highest-return campaigns across platforms</li>
+            <li>Modeled budget utilization and revenue data to guide smarter media spend decisions</li>
+          </ul>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
+            <span class="proj-link" style="margin-top:0;padding-top:0;border-top:none">Explore Details <span>→</span></span>
+            <a href="https://github.com/pmuthumeena5-ux/data-analyst-portfolio/blob/main/Media_Campaign_Analytics_Dataset%20Dashboard_new.pbix" target="_blank" onclick="event.stopPropagation()" class="btn-view-dash">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Legend -->
@@ -1498,6 +1522,21 @@ const projects = {
       'Designed calculated fields and data transformation logic in Google Sheets to simulate a production-grade data model'
     ],
     impact: '💡 Business Impact: By consolidating fragmented project data into one interactive dashboard, this solution eliminates manual status reporting and empowers PMO leaders to make faster, data-backed decisions on resource allocation and risk escalation.'
+  },
+  media: {
+    emoji: '📣',
+    bg: 'linear-gradient(135deg,#fdeef5,#f7c6dc)',
+    title: 'Media Campaign Analytics Dashboard',
+    tools: ['Power BI', 'DAX', 'Power Query', 'Excel', 'Data Modeling', 'Star Schema', 'Marketing Analytics', 'Dashboard Design'],
+    desc: 'Developed a comprehensive Media Campaign Analytics Dashboard in Power BI to monitor and evaluate digital marketing campaign performance across multiple advertising platforms. The dashboard enables marketing teams to track campaign effectiveness using industry-standard KPIs, providing actionable insight into platform effectiveness, customer engagement, and advertising ROI.',
+    highlights: [
+      'Built a star-schema semantic model in Power BI, using Power Query for platform-level data transformation and DAX for KPI calculations',
+      'Tracked impressions, clicks, CTR, CPC, and CPM to evaluate creative and platform-level engagement efficiency',
+      'Measured CPA, conversions, and ROAS to quantify campaign profitability and guide budget reallocation decisions',
+      'Monitored budget utilization in real time to flag overspend risk and support pacing decisions across active campaigns',
+      'Compared platform-level effectiveness to identify where advertising spend delivered the strongest return on investment'
+    ],
+    impact: '💡 Business Impact: By connecting CPA and ROAS directly to budget utilization across platforms, the dashboard gave marketing leadership a clear, data-backed basis for reallocating spend toward the highest-return channels.'
   }
 };
 
